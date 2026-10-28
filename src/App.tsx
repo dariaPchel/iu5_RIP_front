@@ -1,0 +1,24 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { FeedPage } from './pages/FeedPage';
+import { GridPage } from './pages/GridPage';
+import { AddPage } from './pages/AddPage';
+import { LoginPage } from './pages/LoginPage';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Navigate to="/risk_factors_feed/1" replace />} />
+          <Route path="/risk_factors_feed/:id" element={<FeedPage />} />
+          <Route path="/risk_factors_grid" element={<GridPage />} />
+          <Route path="/risk_factors_add" element={<AddPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
